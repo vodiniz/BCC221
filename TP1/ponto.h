@@ -14,16 +14,20 @@ class Ponto {
     Horario termino;
 
 public:
-    void setData(int, int, int);
+
+    Ponto(Data, Horario, Horario);
+    ~Ponto();
+
+    void setData(Data);
     Data getData() const;
 
-    void setHorarioInicio(int, int);
+    void setHorarioInicio(Horario);
     Horario getHorarioInicio() const;
 
-    void setHorarioTermino(int, int);
+    void setHorarioTermino(Horario);
     Horario getHorarioTermino() const;
 
-    void calculaHoras();
+    double calculaHoras();
 
     friend ostream& operator <<(ostream&, const Ponto&);
 };

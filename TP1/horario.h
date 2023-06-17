@@ -13,11 +13,11 @@ public:
     Horario(int = 0, int = 0);
     ~Horario();
 
-    void setHora();
+    void setHora(int);
     int getHora() const;
 
     void setMinuto(int);
-    int getMinuto(int) const;
+    int getMinuto() const;
 
     friend ostream& operator <<(ostream&, const Horario&);
 };

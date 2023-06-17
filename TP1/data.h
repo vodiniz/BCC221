@@ -15,13 +15,13 @@ public:
     ~Data();
 
     void setDia(int dia);
-    void getDia() const;
+    int getDia() const;
 
     void setMes(int mes);
-    void getMes() const;
+    int getMes() const;
     
     void setAno(int ano);
-    void getAno() const;
+    int getAno() const;
 
     friend ostream& operator <<(ostream&, const Data&);
 };

@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "pessoa.h"
-#include "horario.h"
+#include "ponto.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ class Funcionario : public Pessoa {
     string tipoFuncionario;
     string funcao;
     double salarioPorHora;
-    int *ponto; //pode ser classe vector
+    vector<Ponto> pontos; //pode ser classe vector
     
 public:
     void setUsuario(string);
@@ -34,6 +35,8 @@ public:
 
     virtual double exibirSalario() = 0;
     virtual void listarVenda() = 0;
+
+    void calculaHorasSemanais();
 
     friend ostream& operator <<(ostream&, const Funcionario&);
 };
