@@ -1,3 +1,6 @@
+#ifndef VENDEDOR_H
+#define VENDEDOR_H
+
 #include <iostream>
 #include <string>
 
@@ -15,3 +18,5 @@ public:
     void cadastrarVenda();
     friend ostream& operator <<(ostream&, const Vendedor&);
 };
+
+#endif

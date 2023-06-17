@@ -1,3 +1,6 @@
+#ifndef SUPERVISOR_H
+#define SUPERVISOR_H
+
 #include <iostream>
 #include <string>
 
@@ -12,3 +15,5 @@ class Supervisor : public Funcionario {
 public:
     friend ostream& operator <<(ostream&, const Vendedor&); // ?
 };
+
+#endif

@@ -1,5 +1,8 @@
 #include <iostream>
+
 #include "ponto.h"
+#include "horario.h"
+#include "exception.h"
 
 // Construtor da classe Ponto
 Ponto::Ponto(Data dia, Horario inicio, Horario fim) {
@@ -37,19 +40,22 @@ Horario Ponto::getHorarioTermino() const {
 
 double Ponto::calculaHoras() {
 
-    double horasTrabalhadas = 24 - (this->inicio.getHora() + ((60 - this->inicio.getMinuto())) / 60.0) + this->termino.getHora() + (this->termino.getMinuto() / 60.0);
+    int diferencaHoras = this->getHorarioTermino().getHora() - this->getHorarioInicio().getHora() - 1;
+    int diferencaMinutos = this->getHorarioTermino().getMinuto() + (60 - this->getHorarioInicio().getMinuto());
 
-    // Lanca excecao quando o funcionario tenta cadastrar perto de 24 horas
-    if(this->inicio.getHora() == this->termino.getHora() && this->inicio.getMinuto() >= this->termino.getMinuto()) {
-        //criar exceção nova para melhorar o código.
-        throw out_of_range("\033[31mLimite de horas diário excedido. Você não pode trabalhar mais de 10 horas.");
+    if (diferencaMinutos >= 60){
+        diferencaHoras++;
+        diferencaMinutos -= 60;
     }
-        
-    // Saiu no outro dia
-    else if(horasTrabalhadas > 10) {
-        cout << "horas trabalhadas: " << horasTrabalhadas << "\n";
-        //throw out_of_range("\033[31mLimite de horas diário excedido. Você não pode trabalhar mais de 10 horas.");
-    }
+
+    if(diferencaHoras < 0)
+        diferencaHoras += 24;
+
+    if(diferencaHoras > 10 || (diferencaHoras == 10 && diferencaMinutos > 0))
+        throw HorasExcedidas("\033[31mLimite de horas diário excedido. Você não pode trabalhar mais de 10 horas.", __LINE__);
+    
+    double horasTrabalhadas = diferencaHoras + diferencaMinutos / 60.0;
+
 
     return horasTrabalhadas;
 }
