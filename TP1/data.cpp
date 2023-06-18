@@ -53,6 +53,19 @@ int Data::getAno() const {
     return this->ano;
 }
 
+// Descobre o numero da semana atual
+// Auxilia a saber quando vira de uma semana para a outra
+int descobreSemana(Data data) {
+
+    int dia = data.getDia();
+    int mes = data.getMes();
+    int ano = data.getAno();
+
+    int numeroSemana = (dia+= mes < 3 ? ano-- : ano - 2, 23 * mes / 9 + dia + 4 + ano/4 - ano/100 + ano/400) / 7;
+        
+    return numeroSemana;   
+}
+
 // Sobrecarga do cout para imprimir a data
 ostream& operator <<(ostream& out, const Data& objeto) {
     // Aqui usamos setw para padronizar a impressao como DD/MM/AAAA

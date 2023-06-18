@@ -23,6 +23,7 @@ public:
     void setAno(int ano);
     int getAno() const;
 
+    friend int descobreSemana(Data);
     friend ostream& operator <<(ostream&, const Data&);
 };
 

@@ -5,13 +5,15 @@
 #include <string>
 
 using namespace std;
-class HorasExcedidas{
-    string msg;
-    int line;
+
+class HorasExcedidas {
+    string mensagem;
+    int linha;
 
 public:
-    HorasExcedidas(const string& msg, int line);
+    HorasExcedidas(const string& mensagem, int linha);
     ~HorasExcedidas();
+
     string what() const;
 };
 

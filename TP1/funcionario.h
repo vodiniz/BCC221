@@ -16,7 +16,7 @@ class Funcionario : public Pessoa {
     string tipoFuncionario;
     string funcao;
     double salarioPorHora;
-    vector<Ponto> pontos; //pode ser classe vector
+    vector<Ponto> pontos;
     
 public:
     void setUsuario(string);
@@ -31,12 +31,12 @@ public:
     void setFuncao(string);
     string getFuncao() const;
     
-    void cadastrarPonto();
+    void cadastrarPonto(Ponto);
 
-    virtual double exibirSalario() = 0;
-    virtual void listarVenda() = 0;
+    virtual double exibirSalario();
+    virtual void listarVenda();
 
-    void calculaHorasSemanais();
+    double calculaHorasSemanais(Data);
 
     friend ostream& operator <<(ostream&, const Funcionario&);
 };

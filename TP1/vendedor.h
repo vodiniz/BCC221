@@ -10,7 +10,7 @@
 using namespace std;
 
 class Vendedor : public Funcionario {
-    Venda *vendas;
+    Venda *vendas; // utilizar vector
 
 public:
     Vendedor();
