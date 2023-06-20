@@ -7,6 +7,7 @@
 #include "pessoa.h"
 #include "horario.h"
 #include "funcionario.h"
+#include "ponto.h"
 
 using namespace std;
 
@@ -14,11 +15,13 @@ class Chefe : public Pessoa {
     string usuario;
     string senha;
     string funcao;
-    Funcionario *funcionarios;
     double salarioPorHora;
-    int *ponto; //pode ser classe vector, pesquisar.
-    
+    vector<Funcionario> funcionarios;
+
 public:
+    Chefe(string = "", string = "", string = "", string = "", double = 0.);
+    virtual ~Chefe();
+
     void setUsuario(string);
     string getUsuario() const;
 
@@ -28,7 +31,10 @@ public:
     void setFuncao(string);
     string getFuncao() const;
 
-    double calculaSalario();
+    void cadastrarFuncionario(Funcionario*);
+    void listarFuncionarios();
+    void checarPonto();
+    double calcularSalario();
 };
 
 #endif

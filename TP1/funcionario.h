@@ -19,6 +19,9 @@ class Funcionario : public Pessoa {
     vector<Ponto> pontos;
     
 public:
+    Funcionario(string = "", string = "", string = "", string = "", string = "", double = 0.);
+    virtual ~Funcionario();
+
     void setUsuario(string);
     string getUsuario() const;
 
@@ -26,15 +29,15 @@ public:
     string getSenha() const;
 
     void setTipoFuncionario(string);
-    string getTipoFuncioario() const;
+    string getTipoFuncionario() const;
 
     void setFuncao(string);
     string getFuncao() const;
     
     void cadastrarPonto(Ponto);
 
-    virtual double exibirSalario();
-    virtual void listarVenda();
+    void exibirSalario();
+    void listarVendas();
 
     double calculaHorasSemanais(Data);
 

@@ -11,7 +11,7 @@ class Horario {
 
 public:
     Horario(int = 0, int = 0);
-    ~Horario();
+    virtual ~Horario();
 
     void setHora(int);
     int getHora() const;

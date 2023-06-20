@@ -16,7 +16,7 @@ class Ponto {
 public:
 
     Ponto(Data, Horario, Horario);
-    ~Ponto();
+    virtual ~Ponto();
 
     void setData(Data);
     Data getData() const;

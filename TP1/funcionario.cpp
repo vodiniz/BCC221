@@ -1,11 +1,19 @@
 #include <iostream>
 #include <iomanip>
 
+#include "pessoa.h"
 #include "funcionario.h"
 #include "excecao.h"
 #include "data.h"
 
 using namespace std;
+
+Funcionario::Funcionario(string nome, string usuario, string senha, 
+    string tipoFuncionario, string funcao, double salarioPorHora) :
+    Pessoa(nome), usuario(usuario), senha(senha), tipoFuncionario(tipoFuncionario),
+    funcao(funcao), salarioPorHora(salarioPorHora) {}
+
+Funcionario::~Funcionario() {}
 
 // Setter e getter do usuario
 void Funcionario::setUsuario(string usuario) {
@@ -27,7 +35,7 @@ string Funcionario::getSenha() const {
 void Funcionario::setTipoFuncionario(string tipoFuncionario) {
     this->tipoFuncionario = tipoFuncionario;
 }
-string Funcionario::getTipoFuncioario() const {
+string Funcionario::getTipoFuncionario() const {
     return this->tipoFuncionario;
 }
 
@@ -96,8 +104,13 @@ double Funcionario::calculaHorasSemanais(Data data) {
     return horasTrabalhadas;
 }
 
+void Funcionario::exibirSalario() {}
+void Funcionario::listarVendas() {}
+
 // Sobrecarga do cout para imprimir os dados do funcionario
 ostream& operator <<(ostream& out, const Funcionario& objeto) {
-    out << "Nome: " << objeto.getNome() << "\n" <<"Usuário: " << objeto.usuario << "\n" << "Tipo de funcionário: " << objeto.getTipoFuncioario() << "\n" << "Função: " << objeto.getFuncao();
+    out << "Nome: " << objeto.getNome() << "\n" <<"Usuário: " << 
+        objeto.usuario << "\n" << "Tipo de funcionário: " << 
+        objeto.getTipoFuncionario() << "\n" << "Função: " << objeto.getFuncao();
     return out;
 }

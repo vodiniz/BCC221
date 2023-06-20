@@ -10,8 +10,8 @@ class Pessoa {
     string nome;
 
 public:
-    Pessoa(string="");
-    ~Pessoa();
+    Pessoa(string = "");
+    virtual ~Pessoa();
     
     void setNome(string);
     string getNome() const;

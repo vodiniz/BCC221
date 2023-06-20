@@ -12,7 +12,7 @@ class Data {
 
 public:
     Data(int = 1, int = 1, int = 2023);
-    ~Data();
+    virtual ~Data();
 
     void setDia(int dia);
     int getDia() const;

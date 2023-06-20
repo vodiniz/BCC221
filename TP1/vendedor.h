@@ -10,12 +10,18 @@
 using namespace std;
 
 class Vendedor : public Funcionario {
-    Venda *vendas; // utilizar vector
+    vector<Venda> vendas;
 
 public:
-    Vendedor();
-    ~Vendedor();
-    void cadastrarVenda();
+    Vendedor(string = "", string = "", string = "", string = "", string = "", double = 0.);
+    virtual ~Vendedor();
+    
+    void cadastrarVenda(Venda venda);
+    double calcularVendas();
+    void listarVendas();
+
+    void exibirSalario();
+    
     friend ostream& operator <<(ostream&, const Vendedor&);
 };
 

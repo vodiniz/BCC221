@@ -12,7 +12,7 @@ class HorasExcedidas {
 
 public:
     HorasExcedidas(const string& mensagem, int linha);
-    ~HorasExcedidas();
+    virtual ~HorasExcedidas();
 
     string what() const;
 };

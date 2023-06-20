@@ -12,7 +12,7 @@ Ponto::Ponto(Data dia, Horario inicio, Horario fim) {
 }
 
 // Destrutor da classe Ponto
-Ponto::~Ponto() {};
+Ponto::~Ponto() {}
 
 // Setter e getter da data
 void  Ponto::setData(Data data) {
@@ -67,7 +67,6 @@ double Ponto::calculaHoras() {
 
     return horasTrabalhadas;
 }
-
 
 // Sobrecarga do cout para imprimir a data e os horarios de entrada e saida
 ostream& operator <<(ostream& out, const Ponto& objeto) {

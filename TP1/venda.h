@@ -10,7 +10,7 @@ class Venda {
 
 public:
     Venda(double = 0.0);
-    ~Venda();
+    virtual ~Venda();
 
     void setValor(double);
     double getValor() const;
