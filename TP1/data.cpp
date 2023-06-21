@@ -53,7 +53,7 @@ int Data::getAno() const {
     return this->ano;
 }
 
-// Descobre o numero da semana atual
+// Descobre o numero da semana
 // Auxilia a saber quando vira de uma semana para a outra
 int descobreSemana(Data data) {
 
@@ -67,7 +67,7 @@ int descobreSemana(Data data) {
 }
 
 // Sobrecarga do cout para imprimir a data
-ostream& operator <<(ostream& out, const Data& objeto) {
+ostream& operator <<(ostream &out, const Data &objeto) {
     // Aqui usamos setw para padronizar a impressao como DD/MM/AAAA
     // e setfill para preencher com 0 pela esquerda
     out << setw(2) << setfill('0') << objeto.dia << "/" << setw(2) << setfill('0') << objeto.mes << "/" << objeto.ano;
