@@ -3,6 +3,7 @@
 #include "ponto.h"
 #include "horario.h"
 #include "excecao.h"
+#include "formatacao.h"
 
 // Construtor da classe Ponto
 Ponto::Ponto(Data dia, Horario inicio, Horario fim) {
@@ -60,8 +61,8 @@ double Ponto::calculaHoras() {
     // Verifica se o saldo de horas e > 10,
     // ou, se for = 10, se o saldo de minutos e > 0.
     // Caso sim, lanca a excecao de horas excedidas.
-    if(diferencaHoras > 10 || (diferencaHoras == 10 && diferencaMinutos > 0))
-        throw HorasExcedidas("\033[31mLimite de horas diário excedido. Você não pode trabalhar mais do que 10 horas.", __LINE__);
+    if(diferencaHoras > MAXIMO_HORAS_DIARIAS || (diferencaHoras == MAXIMO_HORAS_DIARIAS && diferencaMinutos > 0))
+        throw HorasExcedidas("\x1b[1m\x1b[31mLimite de horas diário excedido. Você não pode trabalhar mais do que 10 horas.\x1b[0m", __LINE__);
     
     double horasTrabalhadas = diferencaHoras + diferencaMinutos / 60.0;
 
@@ -70,8 +71,8 @@ double Ponto::calculaHoras() {
 
 // Sobrecarga do cout para imprimir a data e os horarios de entrada e saida
 ostream& operator <<(ostream &out, const Ponto &objeto) {
-    out << "Dia: "<< objeto.dia << endl
-        << "Horário de Entrada: "<< objeto.inicio << endl
-        << "Horário de Saída: " << objeto.termino;
+    out << "\x1b[1m\x1b[34mDia:\x1b[0m "<< objeto.dia << endl
+        << "\t" << "\x1b[1mEntrada:\x1b[0m "<< objeto.inicio << endl
+        << "\t" << "\x1b[1mSaída:\x1b[0m " << objeto.termino;
     return out;
 }

@@ -5,6 +5,7 @@
 #include "funcionario.h"
 #include "excecao.h"
 #include "data.h"
+#include "formatacao.h"
 
 using namespace std;
 
@@ -64,14 +65,14 @@ void Funcionario::cadastrarPonto(Ponto ponto) {
     double horasUteis;
     
     // Impede o funcionario de cadastrar um ponto se ja tiver chegado ao limite
-    if(horasSemanais >= 50)
-        throw HorasExcedidas("Você já trabalhou 50 horas essa semana.", __LINE__);
+    if(horasSemanais >= MAXIMO_HORAS_SEMANAIS)
+        throw HorasExcedidas("\x1b[1m\x1b[31mVocê já trabalhou 50 horas essa semana.\x1b[0m", __LINE__);
 
     // Caso o funcionario tente cadastrar um ponto que ultrapasse o limite,
     // cadastra o maximo de tempo que pode sem estourar.
-    else if(horasSemanais + ponto.calculaHoras() > 50) {
+    else if(horasSemanais + ponto.calculaHoras() > MAXIMO_HORAS_SEMANAIS) {
         
-        horasUteis = 50 - horasSemanais; // maximo de horas que podem ser cadastradas
+        horasUteis = MAXIMO_HORAS_SEMANAIS - horasSemanais; // maximo de horas que podem ser cadastradas
         Horario hora = ponto.getHorarioInicio();
         
         // O horario de inicio do ponto nao sera alterado
@@ -110,18 +111,21 @@ void Funcionario:: listarVendas() {
 double Funcionario::calculaHorasSemanais(Data data) {
 
     int semanaAtual = descobreSemana(data);
+    int semanaPonto;
     double horasTrabalhadas = 0;
 
     // Varre o vetor de pontos
     for(auto element: this->pontos) {
 
+        semanaPonto = descobreSemana(element.getData());
+
         // Se a semana do ponto analisado for a semana atual, soma as horas 
-        if(descobreSemana(element.getData()) == semanaAtual)
+        if(semanaPonto == semanaAtual)
             horasTrabalhadas += element.calculaHoras();
 
         // Se a semana do ponto analisado for maior do que semana atual, para,
         // pois a semana requerida acabou
-        else if(descobreSemana(element.getData()) > semanaAtual)
+        else if(semanaPonto > semanaAtual)
             break;
     }
 
@@ -133,7 +137,7 @@ double Funcionario::calculaHorasMensais(int mes, int ano) {
 
     // Lanca execao quando o mes informado esta fora do intervalo correto
     if(mes < 1 || mes > 12) {
-        throw out_of_range("\033[31mMeses devem estar entre 1 e 12.\n");
+        throw out_of_range("\x1b[1m\x1b[31mMeses devem estar entre 1 e 12.\n\x1b[0m");
     }
 
     double horasMensais = 0.;
@@ -159,9 +163,9 @@ double Funcionario::calculaHorasMensais(int mes, int ano) {
 
 // Sobrecarga do cout para imprimir os dados do funcionario
 ostream& operator <<(ostream &out, const Funcionario &objeto) {
-    out << "Nome: " << objeto.getNome() << endl
-        << "Usuário: " << objeto.usuario << endl
-        << "Tipo de funcionário: " << objeto.getTipoFuncionario() << endl
-        << "Função: " << objeto.getFuncao();
+    out << "\x1b[1m\x1b[34m" << objeto.getNome() << "\x1b[0m" << endl
+        << "\t" << "\x1b[1mUsuário:\x1b[0m " << objeto.usuario << endl
+        << "\t" << "\x1b[1mTipo de funcionário:\x1b[0m " << objeto.getTipoFuncionario() << endl
+        << "\t" << "\x1b[1mFunção:\x1b[0m " << objeto.getFuncao();
     return out;
 }

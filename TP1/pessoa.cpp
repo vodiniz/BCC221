@@ -22,6 +22,6 @@ string Pessoa::getNome() const {
 
 // Sobrecarga do cout para imprimir o nome da pessoa
 ostream& operator <<(ostream &out, const Pessoa &objeto) {
-    out << "Nome: " << objeto.getNome();
+    out << "\x1b[1m\x1b[34mNome:\x1b[0m " << objeto.getNome();
     return out;
 }

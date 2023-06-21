@@ -38,4 +38,23 @@ public:
     string what() const;
 };
 
+
+
+
+
+
+class UsuarioSenhaInvalido {
+    string mensagem;
+    int linha;
+
+public:
+    // Construtor da classe UsuarioJaExistente
+    UsuarioSenhaInvalido(const string &mensagem, int linha);
+    // Destrutor da classe UsuarioJaExistente
+    virtual ~UsuarioSenhaInvalido();
+
+    // Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+    string what() const;
+};
+
 #endif

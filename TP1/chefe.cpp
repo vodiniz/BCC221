@@ -6,6 +6,7 @@
 #include "pessoa.h"
 #include "excecao.h"
 #include "vendedor.h"
+#include "formatacao.h"
 
 using namespace std;
 
@@ -32,13 +33,26 @@ string Chefe::getSenha() const {
     return this->senha;
 }
 
-// Permite ao Chefe cadastrar um novo funcionario
+// Setter e Getter do salario do chefe
+void Chefe::setSalarioFixo(double salarioFixo) {
+    this->salarioFixo = salarioFixo;
+}
+double Chefe::getSalarioFixo() const {
+    return this->salarioFixo;
+}
+
+// Imprime o salario fixo do chefe
+void Chefe::exibeSalario() {
+    cout << "\x1b[36mSalário:\x1b[0m R$ " << this->salarioFixo;
+}
+
+// Permite ao chefe cadastrar um novo funcionario
 void Chefe::cadastrarFuncionario(Funcionario *funcionario) {
     
     // Checa se o nome de usuario ja existe antes de cadastrar o funcionario
     for(auto element: this->funcionarios) {
         if(funcionario->getUsuario() == element.getUsuario()){
-            throw UsuarioJaExistente("\033[31mNome de usuário já existente.", __LINE__);
+            throw UsuarioJaExistente("\x1b[1m\x1b[31mNome de usuário já existente.\x1b[0m", __LINE__);
             return;
         }
     }
@@ -46,37 +60,37 @@ void Chefe::cadastrarFuncionario(Funcionario *funcionario) {
     this->funcionarios.push_back(*funcionario);
 }
 
-// Imprime todos os funcionarios do Chefe
+// Imprime todos os funcionarios do chefe
 void Chefe::listarFuncionarios() {
     for(auto element: this->funcionarios) {
-        cout << element << "\n";
+        cout << element << endl;
     }
 }
 
-// Permite ao Chefe checar as horas trabalhadas de um funcionario
+// Permite ao chefe checar as horas trabalhadas de um funcionario
 void Chefe::checarPonto(int mes, int ano) {
     
     for(auto funcionario: this->funcionarios) {
         cout << "--------------------" << endl
         << funcionario << endl // funcionario imprime nome, usuario, tipo e funcao
-        << "Horas trabalhadas: ";
+        << "\t" << "\x1b[34mHoras trabalhadas:\033[0m ";
 
         // Calcula as horas normais e extra do funcionario
         double horasTrabalhadas = funcionario.calculaHorasMensais(mes, ano);
-        double horasExtrasTrabalhadas = (horasTrabalhadas > 160) ? 200 - horasExtrasTrabalhadas : 0;
+        double horasExtrasTrabalhadas = (horasTrabalhadas > HORAS_MENSAIS) ? MAXIMO_HORAS_MENSAIS - horasExtrasTrabalhadas : 0;
 
-        if(horasTrabalhadas > 160)
-            horasTrabalhadas = 160;
+        if(horasTrabalhadas > HORAS_MENSAIS)
+            horasTrabalhadas = HORAS_MENSAIS;
         
         cout << horasTrabalhadas << endl
-        << "Horas extras trabalhadas: " << horasExtrasTrabalhadas << endl;
+        << "\t" << "\x1b[32mHoras extras trabalhadas:\033[0m " << horasExtrasTrabalhadas << endl;
         
         if(horasTrabalhadas < 160)
-            cout << "Horas pendentes: " << 160 - horasTrabalhadas << endl;
+            cout << "\t" << "\x1b[31mHoras pendentes:\033[0m " << HORAS_MENSAIS - horasTrabalhadas << endl;
     }
 }
 
-// Permite ao Chefe calcular o salario de um funcionario para seu pagamento
+// Permite ao chefe calcular o salario de um funcionario para seu pagamento
 double Chefe::calcularSalario(int mes, int ano) {
     // Recebe tipo de funcionario pra ver as bonificacoes
     // Recebe o vetor de ponto do funcionario
@@ -85,7 +99,7 @@ double Chefe::calcularSalario(int mes, int ano) {
     
     for(auto funcionario: this->funcionarios) {
         cout << funcionario << endl
-            << "\t" << "Salário: " << funcionario.calcularSalario(mes,ano);
+            << "\t" << "\x1b[36mSalário:\x1b[0m R$ " << funcionario.calcularSalario(mes, ano) << endl;
     }
 
     return 0.;

@@ -30,3 +30,15 @@ UsuarioJaExistente::~UsuarioJaExistente() {}
 string UsuarioJaExistente::what() const {
     return this->mensagem + " na linha " + to_string(this->linha);
 }
+
+
+UsuarioSenhaInvalido::UsuarioSenhaInvalido(const string &mensagem, int linha):
+    mensagem(mensagem), linha(linha) {}
+
+// Destrutor da classe UsuarioJaExistente
+UsuarioSenhaInvalido::~UsuarioSenhaInvalido() {}
+
+// Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+string UsuarioSenhaInvalido::what() const {
+    return this->mensagem + " na linha " + to_string(this->linha);
+}

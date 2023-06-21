@@ -6,6 +6,7 @@
 #include "pessoa.h"
 #include "venda.h"
 #include "data.h"
+#include "formatacao.h"
 
 using namespace std;
 
@@ -33,7 +34,7 @@ double Supervisor::calcularSalario(int mes, int ano) {
 
     double horasMensais = Supervisor::calculaHorasMensais(mes, ano);
 
-    double horaExtra = horasMensais - 40;
+    double horaExtra = horasMensais - HORAS_MENSAIS;
 
     // Se tiver horas extra, diminui das mensais para calcular estas normalmente,
     // ja que as horas extra tem bonificacao
@@ -54,8 +55,8 @@ void Supervisor::exibirSalario(int mes, int ano) {
     // Aqui usamos setw para padronizar a impressao como MM/AAAA
     // e setfill para preencher com 0 pela esquerda
     cout << Supervisor::getNome() << ":" << endl
-        << "Salário de " << setw(2) << setfill('0') << mes << "/" << ano << endl
-        << "R$ " << calcularSalario(mes, ano);
+        << "\x1b[34mSalário de " << setw(2) << setfill('0') << mes << "/" << ano << endl
+        << "\t" << "\x1b[0mR$ " << calcularSalario(mes, ano);
 }
 
 // Imprime as vendas de todos os vendedores supervisionados pelo supervisor
@@ -74,7 +75,7 @@ void Supervisor::adicionarSupervisionado(Vendedor *vendedor){
 
 // Sobrecarga do cout para imprimir nome e usuario do supervisor
 ostream& operator <<(ostream &out, const Supervisor &objeto) {
-    out << "Nome: " << objeto.getNome() << endl
-        << "Usuário: " << objeto.getUsuario();
+    out << "\x1b[1m\x1b" << objeto.getNome() << "\x1b[0m" << endl
+        << "\t" << "\x1b[1mUsuário:\x1b[0m " << objeto.getUsuario();
     return out;
 }

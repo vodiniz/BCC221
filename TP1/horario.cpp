@@ -10,12 +10,12 @@ Horario::Horario(int hora, int minuto) {
     
     // Lanca execao quando a hora informada esta fora do intervalo correto
     if(hora < 0 || hora > 23) {
-        throw out_of_range("\033[31mHoras devem estar entre 0 e 23.\n");
+        throw out_of_range("\x1b[1m\x1b[31mHoras devem estar entre 0 e 23.\n\x1b[0m");
     }
 
     // Lanca execao quando o minuto informado esta fora do intervalo correto
     else if(minuto < 0 || minuto > 59) {
-        throw out_of_range("\033[31mMinutos devem estar entre 0 e 59.\n");
+        throw out_of_range("\x1b[1m\x1b[31mMinutos devem estar entre 0 e 59.\n\x1b[0m");
     }
     
     else {

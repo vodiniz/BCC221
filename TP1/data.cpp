@@ -2,6 +2,7 @@
 #include <iomanip>
 
 #include "data.h"
+#include "formatacao.h"
 
 using namespace std;
 
@@ -11,12 +12,12 @@ Data::Data(int dia, int mes, int ano) {
     // Lanca execao quando o dia informado esta fora do intervalo correto
     // OLHAR MES A MES
     if(dia < 1 || dia > 31) {
-        throw out_of_range("\033[31mDias devem estar entre 1 e 31.\n");
+        throw out_of_range("\x1b[1m\x1b[31mDias devem estar entre 1 e 31.\n\x1b[0m");
     }
 
     // Lanca execao quando o mes informado esta fora do intervalo correto
     else if(mes < 1 || mes > 12) {
-        throw out_of_range("\033[31mMeses devem estar entre 1 e 12.\n");
+        throw out_of_range("\x1b[1m\x1b[31mMeses devem estar entre 1 e 12.\n\x1b[0m");
     }
 
     else {

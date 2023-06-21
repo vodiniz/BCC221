@@ -10,7 +10,7 @@ Venda::Venda(double valor, int dia, int mes, int ano) {
 
     // Lanca excecao quando o valor da venda eh menor ou igual a 0.0
     if(valor <= 0.0) {
-        throw out_of_range("\033[31mAs vendas devem ser maiores que R$ 0,00.\n");
+        throw out_of_range("\x1b[1m\x1b[31mAs vendas devem ser maiores que R$ 0,00.\n\x1b[0m");
     }
 
     else {
@@ -42,7 +42,7 @@ Data Venda::getData() const{
 
 // Sobrecarga do cout para imprimir a data e o valor da venda
 ostream& operator <<(ostream &out, const Venda &objeto) {
-    out << objeto.data << endl
-        << "\t" << "Valor da venda: R$ " << objeto.valor;
+    out << "\t" "\x1b[34m" << objeto.data << "\x1b[0m" << endl
+        << "\t\t" << "\x1b[1mValor da venda:\x1b[0m R$ " << objeto.valor;
     return out;
 }

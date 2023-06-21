@@ -70,10 +70,10 @@ void testeFuncoes() {
     jessica.listarVendas();
     cout << endl << "---------------" << endl;
 
-
-
     cout << endl << "-------KÉZIA--------" << endl;
 
+    kezia.exibeSalario();
+    cout << endl;
     kezia.cadastrarFuncionario(&jessica);
     kezia.cadastrarFuncionario(&bruno);
 
@@ -86,11 +86,4 @@ void testeFuncoes() {
     cout << endl << "---------------" << endl;
     kezia.calcularSalario(1,2023);
     cout << endl << "---------------" << endl;
-
-
-
-
-
-
-
 }

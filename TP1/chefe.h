@@ -32,13 +32,19 @@ public:
     void setSenha(string);
     string getSenha() const;
 
+    // Setter e Getter do salario do chefe
+    void setSalarioFixo(double);
+    double getSalarioFixo() const;
+
+    // Imprime o salario fixo do chefe
+    void exibeSalario();
     // Permite ao Chefe cadastrar um novo funcionario
     void cadastrarFuncionario(Funcionario*);
-    // Imprime todos os funcionarios do Chefe
+    // Imprime todos os funcionarios do chefe
     void listarFuncionarios();
-    // Permite ao Chefe checar as horas trabalhadas de um funcionario
+    // Permite ao chefe checar as horas trabalhadas de um funcionario
     void checarPonto(int, int);
-    // Permite ao Chefe calcular o salario de um funcionario para seu pagamento
+    // Permite ao chefe calcular o salario de um funcionario para seu pagamento
     double calcularSalario(int, int);
 };
 
