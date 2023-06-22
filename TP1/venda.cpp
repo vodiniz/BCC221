@@ -2,11 +2,12 @@
 #include <iomanip>
 
 #include "venda.h"
+#include "data.h"
 
 using namespace std;
 
 // Construtor da classe Venda
-Venda::Venda(double valor, int dia, int mes, int ano) {
+Venda::Venda(double valor, Data data) {
 
     // Lanca excecao quando o valor da venda eh menor ou igual a 0.0
     if(valor <= 0.0) {
@@ -15,7 +16,7 @@ Venda::Venda(double valor, int dia, int mes, int ano) {
 
     else {
         setValor(valor);
-        this->data = Data(dia, mes, ano);
+        this->data = data;
     }
 }
 
@@ -42,7 +43,9 @@ Data Venda::getData() const{
 
 // Sobrecarga do cout para imprimir a data e o valor da venda
 ostream &operator <<(ostream &out, const Venda &objeto) {
-    out << "\t" "\x1b[34m" << objeto.data << "\x1b[0m" << endl
-        << "\t\t" << "\x1b[1mValor da venda:\x1b[0m R$ " << objeto.valor;
+    out 
+    //<< "\t" "\x1b[34m" << objeto.data << "\x1b[0m" << endl
+    << "\t\t" << "\x1b[1mValor da venda:\x1b[0m R$ " << objeto.valor;
     return out;
 }
+

@@ -38,10 +38,7 @@ public:
     string what() const;
 };
 
-
-
-
-
+// --------------------
 
 class UsuarioSenhaInvalido {
     string mensagem;

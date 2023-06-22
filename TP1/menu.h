@@ -41,7 +41,7 @@ public:
     void cadastrarFuncionario();
     void listarFuncionarios();
     void mostrarPontoFuncionarios();
-    void exibirSalarioFuncionarios();
+    void calcularSalarioFuncionarios();
 
     // -------------------- Metodos do funcionario
     
@@ -49,6 +49,9 @@ public:
     void exibirSalario();
     void cadastrarVenda(); // apenas o vendedor possui esse metodo
     void listarVenda();
+
+    // Limpa a tela no terminal
+    void limpaTela();
 };
 
 #endif

@@ -12,12 +12,12 @@ HorasExcedidas::HorasExcedidas(const string &mensagem, int linha):
 // Destrutor da classe HorasExcedidas
 HorasExcedidas::~HorasExcedidas() {}
 
-// Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+// Mostra quando ocorre uma excecao no try
 string HorasExcedidas::what() const {
-    return this->mensagem + " na linha " + to_string(this->linha);
+    return this->mensagem;
 }
 
-// ----------------------
+// ---------------------- 
 
 // Construtor da classe UsuarioJaExistente
 UsuarioJaExistente::UsuarioJaExistente(const string &mensagem, int linha):
@@ -26,19 +26,21 @@ UsuarioJaExistente::UsuarioJaExistente(const string &mensagem, int linha):
 // Destrutor da classe UsuarioJaExistente
 UsuarioJaExistente::~UsuarioJaExistente() {}
 
-// Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+// Mostra quando ocorre uma excecao no try
 string UsuarioJaExistente::what() const {
-    return this->mensagem + " na linha " + to_string(this->linha);
+    return this->mensagem;
 }
 
+// ----------------------
 
+// Destrutor da classe UsuarioSenhaInvalido
 UsuarioSenhaInvalido::UsuarioSenhaInvalido(const string &mensagem, int linha):
     mensagem(mensagem), linha(linha) {}
 
-// Destrutor da classe UsuarioJaExistente
+// Destrutor da classe UsuarioSenhaInvalido
 UsuarioSenhaInvalido::~UsuarioSenhaInvalido() {}
 
-// Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+// Mostra quando ocorre uma excecao no try
 string UsuarioSenhaInvalido::what() const {
     return this->mensagem;
 }

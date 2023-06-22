@@ -14,7 +14,7 @@ void testeFuncoes();
 
 int main() {
 
-    // testeFuncoes();
+    //testeFuncoes();
     Menu menu;
     menu.login();
     
@@ -42,15 +42,17 @@ void testeFuncoes() {
     Vendedor bruno("Bruno", "nobru", "probono", "vendedor", "Vendedor de sonhos", 90.);
     cout << bruno << endl <<  "-----------" << endl;
 
-    Venda carro(80000., 1, 1, 2023);
-    Venda carro2(180000., 1, 1, 2023);
+    Venda carro(80000., data);
+    Venda carro2(180000., data);
 
     // cout << carro << endl <<  "-----------" << endl;
 
     bruno.cadastrarVenda(carro);
     bruno.cadastrarVenda(carro2);
 
+    cout << "BRUNOOOOOOOOOOOOOOOOOOOOOO";
     bruno.listarVendas();
+    cout << "BRUNOOOOOOOOOOOOOOOOOOOOOO";
 
     cout << "---------------" << endl;
 

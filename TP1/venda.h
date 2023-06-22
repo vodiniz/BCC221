@@ -14,7 +14,7 @@ class Venda {
 
 public:
     // Construtor da classe Venda
-    Venda(double = 0.0, int = 1, int = 1, int = 2023);
+    Venda(double, Data);
     // Destrutor da classe Venda
     virtual ~Venda();
 

@@ -69,7 +69,7 @@ void Chefe::cadastrarFuncionario(Funcionario *funcionario) {
 // Imprime todos os funcionarios do chefe
 void Chefe::listarFuncionarios() {
     for(auto element: this->funcionarios) {
-        cout << element << endl;
+        cout << element << "\n" << endl;
     }
 }
 

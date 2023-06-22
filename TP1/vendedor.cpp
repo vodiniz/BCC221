@@ -53,7 +53,14 @@ double Vendedor::calcularVendas(int mes, int ano) {
 
 // Imprime todas as vendas do vendedor
 void Vendedor::listarVendas() {
+    // Variavel que armazena o dia da venda
+    int diaVenda = -1;
     for(auto element: this->vendas) {
+        // Se as vendas forem em dias diferentes, printa o dia das vendas e atualiza a variável
+        if(!(element.getData().getDia() == diaVenda)){
+            cout << "\t" "\x1b[34m" << element.getData() << "\x1b[0m" << endl;
+            diaVenda = element.getData().getDia();
+        }
         cout << element << endl;
     }
 }
