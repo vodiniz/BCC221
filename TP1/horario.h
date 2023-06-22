@@ -26,7 +26,7 @@ public:
     int getMinuto() const;
 
     // Sobrecarga do cout para imprimir o horario
-    friend ostream& operator <<(ostream&, const Horario&);
+    friend ostream &operator <<(ostream&, const Horario&);
 };
 
 #endif

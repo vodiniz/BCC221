@@ -162,7 +162,7 @@ double Funcionario::calculaHorasMensais(int mes, int ano) {
 }
 
 // Sobrecarga do cout para imprimir os dados do funcionario
-ostream& operator <<(ostream &out, const Funcionario &objeto) {
+ostream &operator <<(ostream &out, const Funcionario &objeto) {
     out << "\x1b[1m\x1b[34m" << objeto.getNome() << "\x1b[0m" << endl
         << "\t" << "\x1b[1mUsuário:\x1b[0m " << objeto.usuario << endl
         << "\t" << "\x1b[1mTipo de funcionário:\x1b[0m " << objeto.getTipoFuncionario() << endl

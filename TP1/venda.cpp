@@ -41,7 +41,7 @@ Data Venda::getData() const{
 }
 
 // Sobrecarga do cout para imprimir a data e o valor da venda
-ostream& operator <<(ostream &out, const Venda &objeto) {
+ostream &operator <<(ostream &out, const Venda &objeto) {
     out << "\t" "\x1b[34m" << objeto.data << "\x1b[0m" << endl
         << "\t\t" << "\x1b[1mValor da venda:\x1b[0m R$ " << objeto.valor;
     return out;

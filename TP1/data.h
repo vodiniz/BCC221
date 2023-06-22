@@ -77,7 +77,7 @@ public:
     // Descobre o numero da semana
     friend int descobreSemana(Data);
     // Sobrecarga do cout para imprimir a data
-    friend ostream& operator <<(ostream&, const Data&);
+    friend ostream &operator <<(ostream&, const Data&);
 };
 
 #endif

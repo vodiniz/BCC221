@@ -27,7 +27,7 @@ public:
     Data getData() const;
 
     // Sobrecarga do cout para imprimir a data e o valor da venda
-    friend ostream& operator <<(ostream&, const Venda&);
+    friend ostream &operator <<(ostream&, const Venda&);
 };
 
 #endif

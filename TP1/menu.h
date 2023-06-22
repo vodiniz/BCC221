@@ -3,43 +3,52 @@
 
 #include <iostream>
 #include "chefe.h"
+#include "funcionario.h"
 
 using namespace std;
 
-enum tipoMenu {INDEFINIDO = 0, CHEFE = 1, SUPERVISOR = 2, FUNCIONARIO = 3};
+// Define o nivel de acesso ao menu de acordo com o cargo
+enum tipoMenu {INDEFINIDO = 0, CHEFE = 1, SUPERVISOR = 2, VENDEDOR = 3};
 
-class Menu{
-
+// Classe Menu
+// Base
+class Menu {
     Chefe chefe;
+    Funcionario *funcionario;
     tipoMenu tipoFuncionario = INDEFINIDO;
     
-    public:
+public:
+    // Construtor da classe Menu
+    Menu(int = 0);
+    // Destrutor da classe Menu
+    virtual ~Menu();
 
-        Menu(int = 0);
-        // Destrutor da classe Menu
-        virtual ~Menu();
+    // Setter e getter do menu
+    void setMenu(int);
+    tipoMenu getMenu() const;
+    
+    // Checa se as informações de login batem com algum usuario existente
+    bool checaLogin(string, string);
+    // Loop para o login e logout
+    void login();
+    // Lista as opcoes
+    void mostrarOpcoes();
+    // Loop para selecionar as opcoes e voltar para o menu
+    void opcoes(); 
 
-        void setMenu(int);
-        tipoMenu getMenu() const;
+    // -------------------- Metodos do chefe
 
-        void login();
-        void mostrarOpcoes();
-        void opcoes();
+    void cadastrarFuncionario();
+    void listarFuncionarios();
+    void mostrarPontoFuncionarios();
+    void exibirSalarioFuncionarios();
 
-        // Metodos do chefe
-
-        void cadastrarFuncionario();
-        void listarFuncionarios();
-        void mostrarPontoFuncionarios();
-        void exibirSalarioFuncionarios();
-
-        //Metodos do funcionario
-
-        void cadastrarPonto();
-        void exibirSalario();
-        void cadastrarVenda();
-        void listarVenda();
-
+    // -------------------- Metodos do funcionario
+    
+    void cadastrarPonto();
+    void exibirSalario();
+    void cadastrarVenda(); // apenas o vendedor possui esse metodo
+    void listarVenda();
 };
 
 #endif

@@ -74,7 +74,7 @@ void Supervisor::adicionarSupervisionado(Vendedor *vendedor){
 }
 
 // Sobrecarga do cout para imprimir nome e usuario do supervisor
-ostream& operator <<(ostream &out, const Supervisor &objeto) {
+ostream &operator <<(ostream &out, const Supervisor &objeto) {
     out << "\x1b[1m\x1b" << objeto.getNome() << "\x1b[0m" << endl
         << "\t" << "\x1b[1mUsuário:\x1b[0m " << objeto.getUsuario();
     return out;

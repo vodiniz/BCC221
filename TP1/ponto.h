@@ -37,7 +37,7 @@ public:
     double calculaHoras();
 
     // Sobrecarga do cout para imprimir a data e os horarios de entrada e saida
-    friend ostream& operator <<(ostream&, const Ponto&);
+    friend ostream &operator <<(ostream&, const Ponto&);
 };
 
 #endif

@@ -44,7 +44,7 @@ int Horario::getMinuto() const {
 }
 
 // Sobrecarga do cout para imprimir o horario
-ostream& operator <<(ostream &out, const Horario &objeto) {
+ostream &operator <<(ostream &out, const Horario &objeto) {
     // Aqui usamos setw para padronizar a impressao como DD/MM/AAAA
     // e setfill para preencher com 0 pela esquerda
     out << setw(2) << setfill('0') << objeto.hora << ":" << setw(2) << setfill('0') << objeto.minuto;

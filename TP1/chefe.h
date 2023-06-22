@@ -24,17 +24,19 @@ public:
     // Destrutor da classe Chefe
     virtual ~Chefe();
 
-    // Setter e Getter do usuario do chefe
+    // Setter e getter do usuario do chefe
     void setUsuario(string);
     string getUsuario() const;
 
-    // Setter e Getter da senha do chefe
+    // Setter e getter da senha do chefe
     void setSenha(string);
     string getSenha() const;
 
-    // Setter e Getter do salario do chefe
+    // Setter e getter do salario do chefe
     void setSalarioFixo(double);
     double getSalarioFixo() const;
+
+    vector<Funcionario> getFuncionarios();
 
     // Imprime o salario fixo do chefe
     void exibeSalario();
@@ -46,6 +48,9 @@ public:
     void checarPonto(int, int);
     // Permite ao chefe calcular o salario de um funcionario para seu pagamento
     double calcularSalario(int, int);
+
+    // Sobrecarga do cout do chefe
+    friend ostream &operator <<(ostream&, const Chefe&);
 };
 
 #endif

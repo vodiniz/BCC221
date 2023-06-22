@@ -22,7 +22,7 @@ public:
     string getNome() const;
 
     // Sobrecarga do cout para imprimir o nome
-    friend ostream& operator <<(ostream&, const Pessoa&);
+    friend ostream &operator <<(ostream&, const Pessoa&);
 };
 
 #endif

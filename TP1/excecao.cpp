@@ -40,5 +40,5 @@ UsuarioSenhaInvalido::~UsuarioSenhaInvalido() {}
 
 // Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
 string UsuarioSenhaInvalido::what() const {
-    return this->mensagem + " na linha " + to_string(this->linha);
+    return this->mensagem;
 }

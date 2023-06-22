@@ -30,7 +30,7 @@ public:
     void adicionarSupervisionado(Vendedor*);
 
     // Sobrecarga do cout para imprimir nome e usuario do supervisor
-    friend ostream& operator <<(ostream&, const Vendedor&);
+    friend ostream &operator <<(ostream&, const Vendedor&);
 };
 
 #endif

@@ -70,7 +70,7 @@ double Ponto::calculaHoras() {
 }
 
 // Sobrecarga do cout para imprimir a data e os horarios de entrada e saida
-ostream& operator <<(ostream &out, const Ponto &objeto) {
+ostream &operator <<(ostream &out, const Ponto &objeto) {
     out << "\x1b[1m\x1b[34mDia:\x1b[0m "<< objeto.dia << endl
         << "\t" << "\x1b[1mEntrada:\x1b[0m "<< objeto.inicio << endl
         << "\t" << "\x1b[1mSaída:\x1b[0m " << objeto.termino;

@@ -41,6 +41,12 @@ double Chefe::getSalarioFixo() const {
     return this->salarioFixo;
 }
 
+// Getter para retornar um vetor de funcionario
+vector<Funcionario> Chefe::getFuncionarios(){
+    return this->funcionarios;
+}
+
+
 // Imprime o salario fixo do chefe
 void Chefe::exibeSalario() {
     cout << "\x1b[36mSalário:\x1b[0m R$ " << this->salarioFixo;
@@ -103,4 +109,14 @@ double Chefe::calcularSalario(int mes, int ano) {
     }
 
     return 0.;
+}
+
+// Sobrecarga do cout do chefe
+ostream &operator <<(ostream &out, const Chefe &objeto) {
+    out << "\x1b[1m\x1b[34m" << objeto.getNome() << "\x1b[0m" << endl
+    << "\t" << "\x1b[1mUsuário:\x1b[0m " << objeto.getUsuario() << endl
+    << "\t" << "\x1b[1mTipo de funcionário:\x1b[0m " << "Chefe" << endl
+    << "\t" << "\x1b[36mSalário:\x1b[0m R$ " << fixed << showpoint << setprecision(2) << objeto.getSalarioFixo() << endl;
+        
+    return out;
 }

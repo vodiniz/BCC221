@@ -6,6 +6,7 @@
 #include "chefe.h"
 #include "vendedor.h"
 #include "supervisor.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -13,7 +14,9 @@ void testeFuncoes();
 
 int main() {
 
-    testeFuncoes();
+    // testeFuncoes();
+    Menu menu;
+    menu.login();
     
     // cout << "Setteres e getteres" << "Sorveteres" << endl;
 
@@ -83,7 +86,9 @@ void testeFuncoes() {
     
     kezia.checarPonto(1, 2023);
 
+    cout << endl << " ---------------" << endl;
     cout << endl << "---------------" << endl;
     kezia.calcularSalario(1,2023);
-    cout << endl << "---------------" << endl;
+    cout << endl << "  keziaaaaaaaaaaaaaaaa---------------" << endl;
+    cout << kezia;
 }

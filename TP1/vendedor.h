@@ -33,7 +33,7 @@ public:
     void exibirSalario(int, int);
     
     // Sobrecarga do cout para imprimir nome e usuario do vendedor
-    friend ostream& operator <<(ostream&, const Vendedor&);
+    friend ostream &operator <<(ostream&, const Vendedor&);
 };
 
 #endif
