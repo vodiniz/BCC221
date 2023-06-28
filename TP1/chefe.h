@@ -6,6 +6,7 @@
 
 #include "pessoa.h"
 #include "funcionario.h"
+#include "formatacao.h"
 
 using namespace std;
 
@@ -15,8 +16,8 @@ using namespace std;
 class Chefe : public Pessoa {
     string usuario;
     string senha;
-    double salarioFixo; // como o chefe nao bate ponto, seu salario eh fixo
-    vector<Funcionario> funcionarios; // vetor com todos seus funcionarios
+    double salarioFixo; // como o chefe não bate ponto, seu salário é fixo
+    vector<Funcionario*> funcionarios; // vetor com todos seus funcionários
 
 public:
     // Construtor da classe Chefe
@@ -24,7 +25,7 @@ public:
     // Destrutor da classe Chefe
     virtual ~Chefe();
 
-    // Setter e getter do usuario do chefe
+    // Setter e getter do usuário do chefe
     void setUsuario(string);
     string getUsuario() const;
 
@@ -32,21 +33,22 @@ public:
     void setSenha(string);
     string getSenha() const;
 
-    // Setter e getter do salario do chefe
+    // Setter e getter do salário do chefe
     void setSalarioFixo(double);
     double getSalarioFixo() const;
 
-    vector<Funcionario> getFuncionarios();
+    // Getter dos funcionários listados
+    vector<Funcionario*> getFuncionarios();
 
-    // Imprime o salario fixo do chefe
+    // Imprime o salário fixo do chefe
     void exibeSalario();
-    // Permite ao Chefe cadastrar um novo funcionario
+    // Permite ao Chefe cadastrar um novo funcionário
     void cadastrarFuncionario(Funcionario*);
-    // Imprime todos os funcionarios do chefe
+    // Imprime todos os funcionários do chefe
     void listarFuncionarios();
-    // Permite ao chefe checar as horas trabalhadas de um funcionario
+    // Permite ao chefe checar as horas trabalhadas de um funcionário
     void checarPonto(int, int);
-    // Permite ao chefe calcular o salario de um funcionario para seu pagamento
+    // Permite ao chefe calcular o salário de um funcionário para seu pagamento
     double calcularSalario(int, int);
 
     // Sobrecarga do cout do chefe

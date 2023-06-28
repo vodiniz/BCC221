@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include "formatacao.h"
+
 
 using namespace std;
 

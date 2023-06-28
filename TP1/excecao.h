@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+#include "formatacao.h"
+
 using namespace std;
 
 // Classe HorasExcedidas
@@ -18,12 +20,14 @@ public:
     // Destrutor da classe HorasExcedidas
     virtual ~HorasExcedidas();
 
-    // Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+    // Quando ocorre uma exceção no try, indica o erro e a linha onde ocorreu
     string what() const;
 };
 
 // --------------------
 
+// Classe UsuarioJaExistente
+// Base
 class UsuarioJaExistente {
     string mensagem;
     int linha;
@@ -34,12 +38,14 @@ public:
     // Destrutor da classe UsuarioJaExistente
     virtual ~UsuarioJaExistente();
 
-    // Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+    // Quando ocorre uma exceção no try, indica o erro e a linha onde ocorreu
     string what() const;
 };
 
 // --------------------
 
+// Classe UsuarioSenhaInvalido
+// Base
 class UsuarioSenhaInvalido {
     string mensagem;
     int linha;
@@ -50,7 +56,7 @@ public:
     // Destrutor da classe UsuarioJaExistente
     virtual ~UsuarioSenhaInvalido();
 
-    // Quando ocorre uma excecao no try, indica o erro e a linha onde ocorreu
+    // Quando ocorre uma exceção no try, indica o erro e a linha onde ocorreu
     string what() const;
 };
 

@@ -4,10 +4,12 @@
 #include <iostream>
 #include "chefe.h"
 #include "funcionario.h"
+#include "formatacao.h"
+
 
 using namespace std;
 
-// Define o nivel de acesso ao menu de acordo com o cargo
+// Define o nível de acesso ao menu de acordo com o cargo
 enum tipoMenu {INDEFINIDO = 0, CHEFE = 1, SUPERVISOR = 2, VENDEDOR = 3};
 
 // Classe Menu
@@ -27,30 +29,30 @@ public:
     void setMenu(int);
     tipoMenu getMenu() const;
     
-    // Checa se as informações de login batem com algum usuario existente
+    // Checa se as informações de login batem com algum usuário existente
     bool checaLogin(string, string);
     // Loop para o login e logout
     void login();
-    // Lista as opcoes
+    // Lista as opções
     void mostrarOpcoes();
-    // Loop para selecionar as opcoes e voltar para o menu
+    // Loop para selecionar as opções e voltar para o menu
     void opcoes(); 
 
-    // -------------------- Metodos do chefe
+    // -------------------- Métodos do chefe
 
     void cadastrarFuncionario();
     void listarFuncionarios();
     void mostrarPontoFuncionarios();
     void calcularSalarioFuncionarios();
 
-    // -------------------- Metodos do funcionario
+    // -------------------- Métodos do funcionário
     
     void cadastrarPonto();
     void exibirSalario();
-    void cadastrarVenda(); // apenas o vendedor possui esse metodo
+    void cadastrarVenda(); // apenas o vendedor possui esse método
     void listarVenda();
 
-    // Limpa a tela no terminal
+    // Limpa a tela do terminal
     void limpaTela();
 };
 

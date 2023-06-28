@@ -2,6 +2,7 @@
 #define VENDA_H
 
 #include <iostream>
+#include "formatacao.h"
 #include "data.h"
 
 using namespace std;

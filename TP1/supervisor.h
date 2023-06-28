@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+#include "formatacao.h"
 #include "vendedor.h"
 #include "venda.h"
 
@@ -12,7 +13,7 @@ using namespace std;
 // Classe Supervisor
 // Derivada de Funcionario
 class Supervisor : public Funcionario {
-    vector<Vendedor> supervisionados; // vetor de vendedores supervisores
+    vector<Vendedor*> supervisionados; // vetor de vendedores supervisionados
 
 public:
     // Construtor da classe Supervisor
@@ -20,16 +21,19 @@ public:
     // Destrutor da classe Supervisor
     ~Supervisor();
 
-    // Calcula o salario do supervisor, considerando horas extra, horas pendentes e bonificacoes
+    // Getter dos vendedores supervisionados
+    vector<Vendedor*> getVendedores() const;
+
+    // Calcula o salário do supervisor, considerando horas extras, horas pendentes e bonificações
     double calcularSalario(int mes, int ano);
-    // Exibe o salario do supervisor e a data referente a ele
+    // Exibe o salário do supervisor e a data referente a ele
     void exibirSalario(int mes, int ano);
     // Imprime as vendas de todos os vendedores supervisionados pelo supervisor
     void listarVendas();
-    // Adiciona um funcionario para o supervisor
+    // Adiciona um funcionário para o supervisor
     void adicionarSupervisionado(Vendedor*);
 
-    // Sobrecarga do cout para imprimir nome e usuario do supervisor
+    // Sobrecarga do cout para imprimir nome e usuário do supervisor
     friend ostream &operator <<(ostream&, const Vendedor&);
 };
 

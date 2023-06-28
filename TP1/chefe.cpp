@@ -17,7 +17,7 @@ Chefe::Chefe(string nome, string usuario, string senha, double salarioFixo) :
 // Destrutor da classe Chefe
 Chefe::~Chefe() {}
 
-// Setter e getter do usuario de Chefe
+// Setter e getter do usuário de Chefe
 void Chefe::setUsuario(string usuario) {
     this->usuario = usuario;
 }
@@ -33,7 +33,7 @@ string Chefe::getSenha() const {
     return this->senha;
 }
 
-// Setter e Getter do salario do chefe
+// Setter e Getter do salário do chefe
 void Chefe::setSalarioFixo(double salarioFixo) {
     this->salarioFixo = salarioFixo;
 }
@@ -41,71 +41,69 @@ double Chefe::getSalarioFixo() const {
     return this->salarioFixo;
 }
 
-// Getter para retornar um vetor de funcionario
-vector<Funcionario> Chefe::getFuncionarios(){
+// Getter para retornar um vetor de funcionário
+vector<Funcionario*> Chefe::getFuncionarios(){
     return this->funcionarios;
 }
 
 
-// Imprime o salario fixo do chefe
+// Imprime o salário fixo do chefe
 void Chefe::exibeSalario() {
-    cout << "\x1b[36mSalário:\x1b[0m R$ " << this->salarioFixo;
+    cout << CIANO << "Salário: " << RESETA << "R$ " << this->salarioFixo << "\n" << endl;
 }
 
-// Permite ao chefe cadastrar um novo funcionario
+// Permite ao chefe cadastrar um novo funcionário
 void Chefe::cadastrarFuncionario(Funcionario *funcionario) {
     
-    // Checa se o nome de usuario ja existe antes de cadastrar o funcionario
-    for(auto element: this->funcionarios) {
-        if(funcionario->getUsuario() == element.getUsuario()){
+    // Checa se o nome de usuário já existe antes de cadastrar o funcionário
+    for(Funcionario* pFuncionario: this->funcionarios) {
+        if(funcionario->getUsuario() == pFuncionario->getUsuario()){
             throw UsuarioJaExistente("\x1b[1m\x1b[31mNome de usuário já existente.\x1b[0m", __LINE__);
             return;
         }
     }
 
-    this->funcionarios.push_back(*funcionario);
+    this->funcionarios.push_back(funcionario);
 }
 
-// Imprime todos os funcionarios do chefe
+// Imprime todos os funcionários do chefe
 void Chefe::listarFuncionarios() {
-    for(auto element: this->funcionarios) {
-        cout << element << "\n" << endl;
+    for(Funcionario *funcionario: this->funcionarios) {
+        cout << *funcionario << "\n" << endl;
     }
 }
 
-// Permite ao chefe checar as horas trabalhadas de um funcionario
+// Permite ao chefe checar as horas trabalhadas de um funcionário
 void Chefe::checarPonto(int mes, int ano) {
     
-    for(auto funcionario: this->funcionarios) {
-        cout << "--------------------" << endl
-        << funcionario << endl // funcionario imprime nome, usuario, tipo e funcao
-        << "\t" << "\x1b[34mHoras trabalhadas:\033[0m ";
+    for(Funcionario *funcionario: this->funcionarios) {
+        cout << *funcionario << endl // funcionário imprime nome, usuário, tipo e função
+        << "\t" << AZUL << "Horas trabalhadas: " << RESETA;
 
-        // Calcula as horas normais e extra do funcionario
-        double horasTrabalhadas = funcionario.calculaHorasMensais(mes, ano);
+        // Calcula as horas normais e extras do funcionário
+        double horasTrabalhadas = funcionario->calculaHorasMensais(mes, ano);
         double horasExtrasTrabalhadas = (horasTrabalhadas > HORAS_MENSAIS) ? MAXIMO_HORAS_MENSAIS - horasExtrasTrabalhadas : 0;
 
         if(horasTrabalhadas > HORAS_MENSAIS)
             horasTrabalhadas = HORAS_MENSAIS;
         
         cout << horasTrabalhadas << endl
-        << "\t" << "\x1b[32mHoras extras trabalhadas:\033[0m " << horasExtrasTrabalhadas << endl;
+        << "\t" << VERDE << "Horas extras trabalhadas: " << RESETA << horasExtrasTrabalhadas << endl;
         
         if(horasTrabalhadas < 160)
-            cout << "\t" << "\x1b[31mHoras pendentes:\033[0m " << HORAS_MENSAIS - horasTrabalhadas << endl;
+            cout << "\t" << VERMELHO << "Horas pendentes: " << RESETA << HORAS_MENSAIS - horasTrabalhadas << "\n" << endl;
+        
+        // if(funcionario != this->funcionarios.back())
+        //     cout << NEGRITO << "----------------------------------------" << endl;
     }
 }
 
-// Permite ao chefe calcular o salario de um funcionario para seu pagamento
+// Permite ao chefe calcular o salário de um funcionário para seu pagamento
 double Chefe::calcularSalario(int mes, int ano) {
-    // Recebe tipo de funcionario pra ver as bonificacoes
-    // Recebe o vetor de ponto do funcionario
-    // Caso seja um vendedor, recebe o vetor de vendas
-    // Caso seja um supervisor, recebe o vetor de vendas de todos os supervisionado
     
-    for(auto funcionario: this->funcionarios) {
-        cout << funcionario << endl
-            << "\t" << "\x1b[36mSalário:\x1b[0m R$ " << funcionario.calcularSalario(mes, ano) << endl;
+    for(Funcionario *funcionario: this->funcionarios) {
+        cout << *funcionario << endl
+            << "\t" << CIANO << "Salário: " << RESETA << "R$ " << funcionario->calcularSalario(mes, ano) << "\n" << endl;
     }
 
     return 0.;
@@ -113,10 +111,10 @@ double Chefe::calcularSalario(int mes, int ano) {
 
 // Sobrecarga do cout do chefe
 ostream &operator <<(ostream &out, const Chefe &objeto) {
-    out << "\x1b[1m\x1b[34m" << objeto.getNome() << "\x1b[0m" << endl
-    << "\t" << "\x1b[1mUsuário:\x1b[0m " << objeto.getUsuario() << endl
-    << "\t" << "\x1b[1mTipo de funcionário:\x1b[0m " << "Chefe" << endl
-    << "\t" << "\x1b[36mSalário:\x1b[0m R$ " << fixed << showpoint << setprecision(2) << objeto.getSalarioFixo() << endl;
+    out << CIANO_NEGRITO << objeto.getNome() << RESETA << endl
+    << "\t" << NEGRITO << "Usuário: " << RESETA << objeto.getUsuario() << endl
+    << "\t" << NEGRITO << "Tipo de funcionário: " << RESETA << "Chefe" << endl
+    << "\t" << CIANO << "Salário: " << RESETA << "R$ " << fixed << showpoint << setprecision(2) << objeto.getSalarioFixo() << "\n" << endl;
         
     return out;
 }

@@ -3,13 +3,14 @@
 
 #include "venda.h"
 #include "data.h"
+#include "formatacao.h"
 
 using namespace std;
 
 // Construtor da classe Venda
 Venda::Venda(double valor, Data data) {
 
-    // Lanca excecao quando o valor da venda eh menor ou igual a 0.0
+    // Lança exceção quando o valor da venda é menor ou igual a 0.0
     if(valor <= 0.0) {
         throw out_of_range("\x1b[1m\x1b[31mAs vendas devem ser maiores que R$ 0,00.\n\x1b[0m");
     }
@@ -44,8 +45,7 @@ Data Venda::getData() const{
 // Sobrecarga do cout para imprimir a data e o valor da venda
 ostream &operator <<(ostream &out, const Venda &objeto) {
     out 
-    //<< "\t" "\x1b[34m" << objeto.data << "\x1b[0m" << endl
-    << "\t\t" << "\x1b[1mValor da venda:\x1b[0m R$ " << objeto.valor;
+    //<< "\t" << AZUL << objeto.data << RESETA << endl
+    << "\t\t" << NEGRITO << "Valor da venda: " << RESETA << "R$ " << objeto.valor << endl;
     return out;
 }
-

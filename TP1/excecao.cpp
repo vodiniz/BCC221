@@ -12,7 +12,7 @@ HorasExcedidas::HorasExcedidas(const string &mensagem, int linha):
 // Destrutor da classe HorasExcedidas
 HorasExcedidas::~HorasExcedidas() {}
 
-// Mostra quando ocorre uma excecao no try
+// Mostra quando ocorre uma exceção no try
 string HorasExcedidas::what() const {
     return this->mensagem;
 }
@@ -26,7 +26,7 @@ UsuarioJaExistente::UsuarioJaExistente(const string &mensagem, int linha):
 // Destrutor da classe UsuarioJaExistente
 UsuarioJaExistente::~UsuarioJaExistente() {}
 
-// Mostra quando ocorre uma excecao no try
+// Mostra quando ocorre uma exceção no try
 string UsuarioJaExistente::what() const {
     return this->mensagem;
 }
@@ -40,7 +40,7 @@ UsuarioSenhaInvalido::UsuarioSenhaInvalido(const string &mensagem, int linha):
 // Destrutor da classe UsuarioSenhaInvalido
 UsuarioSenhaInvalido::~UsuarioSenhaInvalido() {}
 
-// Mostra quando ocorre uma excecao no try
+// Mostra quando ocorre uma exceção no try
 string UsuarioSenhaInvalido::what() const {
     return this->mensagem;
 }

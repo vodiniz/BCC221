@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "pessoa.h"
+#include "formatacao.h"
 #include "ponto.h"
 
 using namespace std;
@@ -13,14 +14,13 @@ using namespace std;
 // Classe Funcionario
 // Derivada de Pessoa
 // Herda o atributo nome
-class Funcionario : public Pessoa
-{
+class Funcionario : public Pessoa {
     string usuario;
     string senha;
     string tipoFuncionario;
     string funcao;
     double salarioPorHora;
-    vector<Ponto> pontos;
+    vector<Ponto*> pontos;
 
 public:
     // Construtor da classe Funcionario
@@ -28,7 +28,7 @@ public:
     // Destrutor da classe Funcionario
     virtual ~Funcionario();
 
-    // Setter e getter do usuario
+    // Setter e getter do usuário
     void setUsuario(string);
     string getUsuario() const;
 
@@ -36,32 +36,32 @@ public:
     void setSenha(string);
     string getSenha() const;
 
-    // Setter e getter do tipo de usuario
+    // Setter e getter do tipo de usuário
     void setTipoFuncionario(string);
     string getTipoFuncionario() const;
 
-    // Setter e getter da funcao
+    // Setter e getter da função
     void setFuncao(string);
     string getFuncao() const;
 
-    // Setter e getter do salario
+    // Setter e getter do salário
     void setSalarioPorHora(double);
     double getSalarioPorHora() const;
 
-    // Cadastra o ponto diario do funcionario
-    void cadastrarPonto(Ponto);
+    // Cadastra o ponto diário do funcionário
+    void cadastrarPonto(Ponto*);
 
-    // Funcoes virtuais para as classes derivadas herdarem e manipularem
+    // Funções virtuais para as classes derivadas herdarem e manipularem
     virtual double calcularSalario(int, int);
     virtual void exibirSalario(int, int);
     virtual void listarVendas();
 
-    // Calcula a quantidade de horas trabalhadas pelo funcionario em uma semana
+    // Calcula a quantidade de horas trabalhadas pelo funcionário em uma semana
     double calculaHorasSemanais(Data);
-    // Calcula a quantidade de horas trabalhadas pelo funcionario em um mes
+    // Calcula a quantidade de horas trabalhadas pelo funcionário em um mês
     double calculaHorasMensais(int, int);
 
-    // Sobrecarga do cout para imprimir os dados do funcionario
+    // Sobrecarga do cout para imprimir os dados do funcionário
     friend ostream &operator<<(ostream &, const Funcionario &);
 };
 

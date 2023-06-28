@@ -1,6 +1,7 @@
 #ifndef HORARIO_H
 #define HORARIO_H
 
+#include "formatacao.h"
 #include <iostream>
 
 using namespace std;
@@ -25,7 +26,7 @@ public:
     void setMinuto(int);
     int getMinuto() const;
 
-    // Sobrecarga do cout para imprimir o horario
+    // Sobrecarga do cout para imprimir o horário
     friend ostream &operator <<(ostream&, const Horario&);
 };
 

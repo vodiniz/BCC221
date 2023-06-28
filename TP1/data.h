@@ -3,9 +3,11 @@
 
 #include <iostream>
 
+#include "formatacao.h"
+
 using namespace std;
 
-/* // Guarda dos meses referentes aos seus numeros
+/* // Guarda os meses referentes aos seus números
 char *nomeMes(int m) {
     switch (m) {
         case 1:
@@ -66,7 +68,7 @@ public:
     void setDia(int dia);
     int getDia() const;
 
-    // Setter e getter do mes
+    // Setter e getter do mês
     void setMes(int mes);
     int getMes() const;
     
@@ -74,7 +76,7 @@ public:
     void setAno(int ano);
     int getAno() const;
 
-    // Descobre o numero da semana
+    // Descobre o número da semana
     friend int descobreSemana(Data);
     // Sobrecarga do cout para imprimir a data
     friend ostream &operator <<(ostream&, const Data&);
