@@ -52,8 +52,10 @@ public:
     void cadastrarVenda(); // apenas o vendedor possui esse método
     void listarVenda();
 
+    
     // Limpa a tela do terminal
     void limpaTela();
+
 };
 
 #endif

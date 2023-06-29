@@ -17,11 +17,20 @@ Vendedor::Vendedor(string nome, string usuario, string senha, string tipoFuncion
     Funcionario(nome, usuario, senha, tipoFuncionario, funcao, salarioPorHora) {}
 
 // Destrutor da classe Vendedor
-Vendedor::~Vendedor() {}
+Vendedor::~Vendedor() {
+    this->liberaVendas();
+}
 
 // Cadastra uma venda do vendedor
 void Vendedor::cadastrarVenda(Venda *venda) {
     this->vendas.push_back(venda);
+}
+
+void Vendedor::liberaVendas(){
+
+    for(Venda* venda : this->vendas)
+        delete venda;
+
 }
 
 // Calcula o valor das vendas do vendedor

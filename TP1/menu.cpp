@@ -91,6 +91,7 @@ void Menu::login() {
             if(usuario == "-1") {
                 limpaTela();
                 cout << VERDE_NEGRITO << "\n" << "Logout efetuado com sucesso! Até a próxima :(" << RESETA << endl;
+                
                 break;
             }
             

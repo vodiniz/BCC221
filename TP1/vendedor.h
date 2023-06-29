@@ -23,6 +23,10 @@ public:
 
     // Cadastra uma venda do vendedor
     void cadastrarVenda(Venda*);
+
+    // Libera as vendas que são referenciados pelo vector
+    void liberaVendas();
+
     // Calcula o valor das vendas do vendedor
     double calcularVendas(int, int);
     // Imprime todas as vendas do vendedor

@@ -50,6 +50,9 @@ public:
 
     // Cadastra o ponto diário do funcionário
     void cadastrarPonto(Ponto*);
+    
+    // Libera os pontos que são referenciados pelo vector
+    void liberaPontos();
 
     // Funções virtuais para as classes derivadas herdarem e manipularem
     virtual double calcularSalario(int, int);

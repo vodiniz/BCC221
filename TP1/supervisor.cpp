@@ -81,6 +81,7 @@ void Supervisor::adicionarSupervisionado(Vendedor *vendedor) {
     this->supervisionados.push_back(vendedor);
 }
 
+
 // Sobrecarga do cout para imprimir nome e usuário do supervisor
 ostream &operator <<(ostream &out, const Supervisor &objeto) {
     out << NEGRITO << objeto.getNome() << RESETA << endl

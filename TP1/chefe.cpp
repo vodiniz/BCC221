@@ -15,7 +15,9 @@ Chefe::Chefe(string nome, string usuario, string senha, double salarioFixo) :
     Pessoa(nome), usuario(usuario), senha(senha), salarioFixo(salarioFixo) {}
 
 // Destrutor da classe Chefe
-Chefe::~Chefe() {}
+Chefe::~Chefe() {
+    this->liberaFuncionarios();
+}
 
 // Setter e getter do usuário de Chefe
 void Chefe::setUsuario(string usuario) {
@@ -46,6 +48,12 @@ vector<Funcionario*> Chefe::getFuncionarios(){
     return this->funcionarios;
 }
 
+// Libera os funcionarios que são referenciados pelo vector
+void Chefe::liberaFuncionarios(){
+
+    for(Funcionario* funcionario : this->funcionarios)
+        delete funcionario;
+}
 
 // Imprime o salário fixo do chefe
 void Chefe::exibeSalario() {

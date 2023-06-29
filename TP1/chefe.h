@@ -40,6 +40,9 @@ public:
     // Getter dos funcionários listados
     vector<Funcionario*> getFuncionarios();
 
+    // Libera os funcionarios que são referenciados pelo vector
+    void liberaFuncionarios();
+
     // Imprime o salário fixo do chefe
     void exibeSalario();
     // Permite ao Chefe cadastrar um novo funcionário

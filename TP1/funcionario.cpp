@@ -16,7 +16,9 @@ Funcionario::Funcionario(string nome, string usuario, string senha,
     funcao(funcao), salarioPorHora(salarioPorHora) {}
 
 // Destrutor da classe Funcionario
-Funcionario::~Funcionario() {}
+Funcionario::~Funcionario() {
+    this->liberaPontos();
+}
 
 // Setter e getter do usuário
 void Funcionario::setUsuario(string usuario) {
@@ -94,6 +96,14 @@ void Funcionario::cadastrarPonto(Ponto *ponto) {
     }
     // Atualiza o vetor de pontos com o ponto cadastrado   
     this->pontos.push_back(ponto);
+}
+
+// Libera os pontos que são referenciados pelo vector
+void Funcionario::liberaPontos(){
+
+    for(Ponto* ponto : this->pontos)
+        delete ponto;
+
 }
 
 // GAMBIARRA
