@@ -106,7 +106,6 @@ void Funcionario::liberaPontos(){
 
 }
 
-// GAMBIARRA
 double Funcionario::calcularSalario(int mes, int ano) {
     return 0.;
 }

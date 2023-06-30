@@ -1,5 +1,5 @@
 all: main.o horario.o pessoa.o ponto.o supervisor.o venda.o vendedor.o data.o excecao.o funcionario.o chefe.o menu.o
-	@g++ -o exe main.o horario.o pessoa.o ponto.o supervisor.o venda.o vendedor.o data.o excecao.o funcionario.o chefe.o menu.o -Wall -g 
+	@g++ -o sistema main.o horario.o pessoa.o ponto.o supervisor.o venda.o vendedor.o data.o excecao.o funcionario.o chefe.o menu.o -Wall -g 
 	@rm -r *.o
 main.o: main.cpp
 	@g++ -c main.cpp -Wall  -g
@@ -27,4 +27,4 @@ menu.o: menu.cpp
 	@g++ -c menu.cpp -Wall -g
 
 run:
-	@./exe
+	@./sistema
